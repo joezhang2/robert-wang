@@ -10,7 +10,7 @@ function respond() {
     var request_text = request.text.toLowerCase();
     if (/^\/cool guy$/.test(request_text)) {
       this.res.writeHead(200);
-      postMessage(cool());
+      postMessage(cool_guy());
       this.res.end();
     } else if (/^\/choose$/.test(request_text)) {
       this.res.writeHead(200);
@@ -33,6 +33,14 @@ function respond() {
     console.log("don't care");
     this.res.writeHead(200);
     this.res.end();
+  }
+}
+
+function cool_guy() {
+  if (Math.random() < 0.01) {
+    return "fuck you";
+  } else {
+    return cool();
   }
 }
 
