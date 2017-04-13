@@ -49,7 +49,7 @@ function tryna_start() {
 }
 
 function choosePerson() {
-  var people = ["cory", "franklin", "peter", "rich", "bernard", "michael", "kwang", "ept", "joe"];
+  var people = ["cory", "franklin", "peter", "kyle", "rich", "bernard", "michael", "kwang", "ept", "joe"];
   var index = Math.floor(Math.random() * people.length);
   return people[index];
 }
