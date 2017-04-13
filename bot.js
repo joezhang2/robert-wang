@@ -2,26 +2,36 @@ var HTTPS = require('https');
 var cool = require('cool-ascii-faces');
 
 var botID = process.env.BOT_ID;
-
 function respond() {
   var request = JSON.parse(this.req.chunks[0]),
-      botRegex = /^\/cool guy$/;
 
-  if(request.text && botRegex.test(request.text)) {
-    this.res.writeHead(200);
-    postMessage();
-    this.res.end();
-  } else {
+  if(request.text) {
+    if (/^\/cool guy$/.test(request.text)) {
+        this.res.writeHead(200);
+        postMessage(cool());
+        this.res.end();
+    } else if (/^\/choose/) {
+        this.res.writeHead(200);
+        postMessage(choosePerson());
+        this.res.end();
+    }
+  }
+  else {
     console.log("don't care");
     this.res.writeHead(200);
     this.res.end();
   }
 }
 
-function postMessage() {
+function choosePerson() {
+  var people = ["cory", "franklin", "peter", "rich", "bernard", "michael", "kwang", "ept", "joe"]
+  var index = Math.floor(Math.random() * people.length)
+  return people[index]
+}
+function postMessage(message) {
   var botResponse, options, body, botReq;
 
-  botResponse = cool();
+  botResponse = message;
 
   options = {
     hostname: 'api.groupme.com',
