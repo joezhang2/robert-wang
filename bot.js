@@ -11,9 +11,17 @@ function respond() {
       this.res.writeHead(200);
       postMessage(cool());
       this.res.end();
-    } else if (request.text && /^\/choose$/.test(request.text)) {
+    } else if (/^\/choose$/.test(request.text)) {
       this.res.writeHead(200);
       postMessage(choosePerson());
+      this.res.end();
+    } else if (/tryna start/.test(request.text)) {
+      this.res.writeHead(200);
+      postMessage("is that kwang tryna start again?");
+      this.res.end();
+    } else if (/^\/help$/.test(request.text)) {
+      this.res.writeHead(200);
+      postMessage(help());
       this.res.end();
     }
   } else {
@@ -21,6 +29,10 @@ function respond() {
     this.res.writeHead(200);
     this.res.end();
   }
+}
+
+function help() {
+  return "commands available are /cool guy and /choose";
 }
 
 function choosePerson() {
