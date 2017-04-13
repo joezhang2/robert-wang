@@ -6,7 +6,6 @@ var botID = process.env.BOT_ID;
 function respond() {
   var request = JSON.parse(this.req.chunks[0]);
 
-  console.log(request)
   if (request.text && request.sender_type == "user") {
     var request_text = request.text.toLowerCase();
     if (/^\/cool guy$/.test(request_text)) {
