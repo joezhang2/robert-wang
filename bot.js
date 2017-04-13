@@ -5,8 +5,12 @@ var botID = process.env.BOT_ID;
 
 function respond() {
   var request = JSON.parse(this.req.chunks[0]);
-
   if (request.text && request.sender_type == "user") {
+    if (Math.random() < 0.005) {
+      this.res.writeHead(200);
+      postMessage("fuck you");
+      this.res.end();
+    }
     var request_text = request.text.toLowerCase();
     if (/^\/cool guy$/.test(request_text)) {
       this.res.writeHead(200);
