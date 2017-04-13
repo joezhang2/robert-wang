@@ -69,6 +69,6 @@ function postMessage(message) {
 }
 
 //schedules
-schedule.scheduleJob('10 * * * *', function(){
+schedule.scheduleJob('20 * * * *', function(){
   postMessage('testing');
 });
