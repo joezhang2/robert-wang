@@ -7,7 +7,7 @@ function respond() {
   var request = JSON.parse(this.req.chunks[0]);
 
   console.log(request)
-  if (request.text) {
+  if (request.text && request.sender_type == "user") {
     if (/^\/cool guy$/.test(request.text)) {
       this.res.writeHead(200);
       postMessage(cool());
@@ -16,7 +16,7 @@ function respond() {
       this.res.writeHead(200);
       postMessage(choosePerson());
       this.res.end();
-    } else if (/trynasdfsdfstart/.test(request.text)) {
+    } else if (/tryna start/.test(request.text)) {
       this.res.writeHead(200);
       postMessage("is that kwang tryna start again?");
       this.res.end();
