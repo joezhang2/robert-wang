@@ -20,6 +20,10 @@ function respond() {
       this.res.writeHead(200);
       postMessage("is that kwang tryna start again?");
       this.res.end();
+    } else if (/robert wang/.test(request_text)) {
+      this.res.writeHead(200);
+      postMessage("you talkin to me?");
+      this.res.end();
     } else if (/^\/help$/.test(request_text)) {
       this.res.writeHead(200);
       postMessage(help());
