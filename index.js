@@ -1,9 +1,10 @@
-var http, director, cool, bot, router, server, port;
+var http, director, cool, bot, router, server, port, schedule;
 
 http        = require('http');
 director    = require('director');
 cool        = require('cool-ascii-faces');
 bot         = require('./bot.js');
+schedule    = require('node-schedule');
 
 router = new director.http.Router({
   '/' : {
@@ -31,3 +32,8 @@ function ping() {
   this.res.writeHead(200);
   this.res.end("Hey, I'm Cool Guy.");
 }
+
+//schedules
+schedule.scheduleJob('42 * * * *', function(){
+  bot.postMessage('testing');
+});
