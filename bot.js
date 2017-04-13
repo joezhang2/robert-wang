@@ -4,7 +4,7 @@ var cool = require('cool-ascii-faces');
 var botID = process.env.BOT_ID;
 
 function respond() {
-  var request = JSON.parse(this.req.chunks[0]);
+  var request = JSON.parse(this.req.chunks[0]);hero
 
   if (request.text) {
     if (/^\/cool guy$/.test(request.text)) {
@@ -43,7 +43,7 @@ function postMessage(message) {
     "text" : message
   };
 
-  console.log('sending ' + botResponse + ' to ' + botID);
+  console.log('sending ' + message + ' to ' + botID);
 
   botReq = HTTPS.request(options, function(res) {
       if(res.statusCode == 202) {
