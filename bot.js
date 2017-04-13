@@ -4,7 +4,7 @@ var cool = require('cool-ascii-faces');
 var botID = process.env.BOT_ID;
 
 function respond() {
-  var request = JSON.parse(this.req.chunks[0]);hero
+  var request = JSON.parse(this.req.chunks[0]);
 
   if (request.text) {
     if (/^\/cool guy$/.test(request.text)) {
