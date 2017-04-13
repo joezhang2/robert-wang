@@ -8,19 +8,20 @@ function respond() {
 
   console.log(request)
   if (request.text && request.sender_type == "user") {
-    if (/^\/cool guy$/.test(request.text)) {
+    var request_text = request.text.toLowerCase();
+    if (/^\/cool guy$/.test(request_text)) {
       this.res.writeHead(200);
       postMessage(cool());
       this.res.end();
-    } else if (/^\/choose$/.test(request.text)) {
+    } else if (/^\/choose$/.test(request_text)) {
       this.res.writeHead(200);
       postMessage(choosePerson());
       this.res.end();
-    } else if (/tryna start/.test(request.text)) {
+    } else if (/tryna start/.test(request_text)) {
       this.res.writeHead(200);
       postMessage("is that kwang tryna start again?");
       this.res.end();
-    } else if (/^\/help$/.test(request.text)) {
+    } else if (/^\/help$/.test(request_text)) {
       this.res.writeHead(200);
       postMessage(help());
       this.res.end();
