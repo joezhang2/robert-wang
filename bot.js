@@ -18,7 +18,7 @@ function respond() {
       this.res.end();
     } else if (/tryna start/.test(request_text)) {
       this.res.writeHead(200);
-      postMessage("is that kwang tryna start again?");
+      postMessage(tryna_start());
       this.res.end();
     } else if (/robert wang/.test(request_text)) {
       this.res.writeHead(200);
@@ -38,6 +38,14 @@ function respond() {
 
 function help() {
   return "commands available are /cool guy and /choose";
+}
+
+function tryna_start() {
+  if (Math.random() < 0.75) {
+    return "is that kwang tryna start again?";
+  } else {
+    return "who tryna start rn";
+  }
 }
 
 function choosePerson() {
