@@ -1,6 +1,7 @@
-var http, director, cool, bot, router, server, port, schedule;
+var http, https, director, cool, bot, router, server, port, schedule;
 var botID = process.env.BOT_ID;
 
+HTTPS       = require('https');
 http        = require('http');
 director    = require('director');
 cool        = require('cool-ascii-faces');
