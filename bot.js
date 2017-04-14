@@ -3,8 +3,8 @@ var cool = require('cool-ascii-faces');
 
 var botID = process.env.BOT_ID;
 
-var escaped_options = [cool_guy, choose, help]
-var options = [tyna_start, robert_wang];
+var escaped_options = [cool_guy, choose, help];
+var options = [tryna_start, robert_wang];
 
 function respond() {
   var request = JSON.parse(this.req.chunks[0]);
@@ -14,11 +14,15 @@ function respond() {
       postMessage("fuck you");
       this.res.end();
     }
+<<<<<<< HEAD
     if (Math.random() < 0.01) {
       this.res.writeHead(200);
       postMessage("you are beautiful");
       this.res.end();
     }
+=======
+    
+>>>>>>> minor bug fixes to get help() working
     var request_text = request.text.toLowerCase();
     if (/\/cool guy$/.test(request_text)) {
       this.res.writeHead(200);
