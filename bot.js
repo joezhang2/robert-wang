@@ -3,6 +3,9 @@ var cool = require('cool-ascii-faces');
 
 var botID = process.env.BOT_ID;
 
+var escaped_options = [cool_guy, choose, help]
+var options = [tyna_start, robert_wang];
+
 function respond() {
   var request = JSON.parse(this.req.chunks[0]);
   if (request.text && request.sender_type == "user") {
@@ -64,12 +67,19 @@ function respond() {
   }
 }
 
+// functions called with an "/" in front of the command
 function cool_guy() {
   if (Math.random() < 0.01) {
     return "fuck you";
   } else {
     return cool();
   }
+}
+
+function choose() {
+  var people = ["cory", "franklin", "peter", "kyle", "rich", "bernard", "michael", "kwang", "ept", "joe"];
+  var index = Math.floor(Math.random() * people.length);
+  return people[index];
 }
 
 function help() {
@@ -87,6 +97,7 @@ function tryna_start() {
   }
 }
 
+<<<<<<< HEAD
 function eightball() {
   var options = ["It is known", " It is decidedly so", "Without a doubt", "Yes definitely", "You may rely on it", "As I see it, yes", "Most likely", "Outlook good", "Yes", "Signs point to yes", "Reply hazy try again", "Ask again later", "Better not tell you now", "Cannot predict now", "Concentrate and ask again", "Don't count on it", "My reply is no", "My sources say no", "Outlook not so good", "Very doubtful", "I must say no"];
   options.push("You should ask " + choosePerson());
