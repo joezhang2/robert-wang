@@ -14,15 +14,11 @@ function respond() {
       postMessage("fuck you");
       this.res.end();
     }
-<<<<<<< HEAD
     if (Math.random() < 0.01) {
       this.res.writeHead(200);
       postMessage("you are beautiful");
       this.res.end();
     }
-=======
-    
->>>>>>> minor bug fixes to get help() working
     var request_text = request.text.toLowerCase();
     if (/\/cool guy$/.test(request_text)) {
       this.res.writeHead(200);
