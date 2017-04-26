@@ -11,6 +11,11 @@ function respond() {
       postMessage("fuck you");
       this.res.end();
     }
+    if (Math.random() < 0.01) {
+      this.res.writeHead(200);
+      postMessage("you are beautiful");
+      this.res.end();
+    }
     var request_text = request.text.toLowerCase();
     if (/^\/cool guy$/.test(request_text)) {
       this.res.writeHead(200);
@@ -20,9 +25,9 @@ function respond() {
       this.res.writeHead(200);
       postMessage(choosePerson());
       this.res.end();
-    } else if (/tryna start/.test(request_text)) {
-      this.res.writeHead(200);
-      postMessage(tryna_start());
+    // } else if (/tryna start/.test(request_text)) {
+    //   this.res.writeHead(200);
+    //   postMessage(tryna_start());
       this.res.end();
     } else if (/robert wang/.test(request_text)) {
       this.res.writeHead(200);
