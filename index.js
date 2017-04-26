@@ -69,6 +69,6 @@ function postMessage(message) {
 }
 
 //schedules
-schedule.scheduleJob('* 20 * * 1-5', function(){
+schedule.scheduleJob('0 0 20 * * 1-5', function(){
   postMessage('go home frank');
 });
