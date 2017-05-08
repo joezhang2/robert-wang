@@ -98,7 +98,7 @@ function maximus() {
   return "My name is Maximus Decimus Meridius, commander of the Armies of the North, General of the Felix Legions, loyal servant to the true emperor, Marcus Aurelius. Father to a murdered son, husband to a murdered wife. And I will have my vengeance, in this life or the next.";
 }
 
-function jospeh(message, times=5) {
+function jospeh(message, times) {
   //choose a random spot
   var index = Math.floor(Math.random() * message.length);
   if ( message[index] == ' ' || index == message.length - 1 || message[index+1] == ' ') {
@@ -131,7 +131,7 @@ function postMessage(message) {
 
   body = {
     "bot_id" : botID,
-    "text" : message
+    "text" : jospeh(message, 5)
   };
 
   console.log('sending ' + message + ' to ' + botID);
