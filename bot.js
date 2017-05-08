@@ -89,7 +89,7 @@ function wtf() {
 }
 
 function choosePerson() {
-  var people = ["cory", "franklin", "peter", "kyle", "rich", "bernard", "michael", "kwang", "ept", "joe"];
+  var people = ["cory", "franklin", "peter", "kyle", "rich", "bernard", "michael", "kwang", "ept", "joseph"];
   var index = Math.floor(Math.random() * people.length);
   return people[index];
 }
