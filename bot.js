@@ -33,6 +33,10 @@ function respond() {
       this.res.writeHead(200);
       postMessage(wtf());
       this.res.end();
+    } else if (/^\/ruder$/.test(request_text)) {
+      this.res.writeHead(200);
+      postMessage("cuder");
+      this.res.end();
     } else if (/^\/8ball$/.test(request_text)) {
       this.res.writeHead(200);
       postMessage(eightball());
