@@ -103,24 +103,27 @@ function maximus() {
 }
 
 function jospeh(message, times) {
-  //choose a random spot
-  var index = Math.floor(Math.random() * message.length);
-  if ( message[index] == ' ' || index == message.length - 1 || message[index+1] == ' ') {
-    if (times == 0) {
-      return message;
-    } else {
-      return jospeh(message, times-1);
-    }
+  if (Math.random() < 0.02) {
+    return message;
   } else {
-    var a =  message[index]; 
-    var b = message[index+1]; 
-    var garbled;
-    if (index == 0) {
-      garbled = b + a + message.substr(index+2, message.length);
+    var index = Math.floor(Math.random() * message.length);
+    if ( message[index] == ' ' || index == message.length - 1 || message[index+1] == ' ') {
+      if (times == 0) {
+        return message;
+      } else {
+        return jospeh(message, times-1);
+      }
     } else {
-      garbled = message.substr(0,index) + b + a + message.substr(index+2, message.length);
+      var a =  message[index];
+      var b = message[index+1];
+      var garbled;
+      if (index == 0) {
+        garbled = b + a + message.substr(index+2, message.length);
+      } else {
+        garbled = message.substr(0,index) + b + a + message.substr(index+2, message.length);
+      }
+      return garbled;
     }
-    return garbled;
   }
 }
 
