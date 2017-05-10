@@ -103,35 +103,30 @@ function maximus() {
 }
 
 function jospeh(message, times) {
-  //give robert a chance to spell right
-  if (Math.random() < 0.02) {
-    return message;
-  } else {
-    var words = message.split(" ");
-    var word_index = Math.floor(Math.random() * words.length);
-    var random_word = words[word_index];
-    var letter_index = Math.floor(Math.random() * random_word.length);
-    //don't switch the first or last letter of a word
-    if (letter_index == 0 || letter_index >= random_word.length - 2) {
-      if (times == 0) {
-        return message;
-      } else {
-        return jospeh(message, times-1);
-      }
+  var words = message.split(" ");
+  var word_index = Math.floor(Math.random() * words.length);
+  var random_word = words[word_index];
+  var letter_index = Math.floor(Math.random() * random_word.length);
+  //don't switch the first or last letter of a word
+  if (letter_index == 0 || letter_index >= random_word.length - 2) {
+    if (times == 0) {
+      return message;
     } else {
-      var a = random_word[letter_index];
-      var b = random_word[letter_index+1];
-      var garbled_word = random_word.substr(0,letter_index) + b + a + random_word.substr(letter_index+2, random_word.length);
-      var new_message = [];
-      for (i = 0; i < words.length; i++) {
-        if (i == word_index) {
-          new_message.push(garbled_word);
-        } else {
-          new_message.push(words[i]);
-        }
-      }
-      return new_message.join(" ");
+      return jospeh(message, times-1);
     }
+  } else {
+    var a = random_word[letter_index];
+    var b = random_word[letter_index+1];
+    var garbled_word = random_word.substr(0,letter_index) + b + a + random_word.substr(letter_index+2, random_word.length);
+    var new_message = [];
+    for (i = 0; i < words.length; i++) {
+      if (i == word_index) {
+        new_message.push(garbled_word);
+      } else {
+        new_message.push(words[i]);
+      }
+    }
+    return new_message.join(" ");
   }
 }
 
@@ -146,7 +141,7 @@ function postMessage(message) {
 
   body = {
     "bot_id" : botID,
-    "text" : jospeh(message, 5)
+    "text" : jospeh(message, 15)
   };
 
   console.log('sending ' + message + ' to ' + botID);
