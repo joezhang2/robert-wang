@@ -17,27 +17,27 @@ function respond() {
       this.res.end();
     }
     var request_text = request.text.toLowerCase();
-    if (/^\/cool guy$/.test(request_text)) {
+    if (/\/cool guy$/.test(request_text)) {
       this.res.writeHead(200);
       postMessage(cool_guy());
       this.res.end();
-    } else if (/^\/choose$/.test(request_text)) {
+    } else if (/\/choose$/.test(request_text)) {
       this.res.writeHead(200);
       postMessage(choosePerson());
       this.res.end();
-    } else if (/^\/maximus$/.test(request_text)) {
+    } else if (/\/maximus$/.test(request_text)) {
       this.res.writeHead(200);
       postMessage(maximus());
       this.res.end();
-    } else if (/^\/wtf$/.test(request_text)) {
+    } else if (/\/wtf$/.test(request_text)) {
       this.res.writeHead(200);
       postMessage(wtf());
       this.res.end();
-    } else if (/^\/ruder$/.test(request_text)) {
+    } else if (/\/ruder$/.test(request_text)) {
       this.res.writeHead(200);
       postMessage("cuder");
       this.res.end();
-    } else if (/^\/8ball$/.test(request_text)) {
+    } else if (/\/8ball$/.test(request_text)) {
       this.res.writeHead(200);
       postMessage(eightball());
       this.res.end();
@@ -49,7 +49,7 @@ function respond() {
       this.res.writeHead(200);
       postMessage("you talkin to me?");
       this.res.end();
-    } else if (/^\/help$/.test(request_text)) {
+    } else if (/\/help$/.test(request_text)) {
       this.res.writeHead(200);
       postMessage(help());
       this.res.end();
