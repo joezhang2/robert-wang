@@ -41,10 +41,10 @@ function respond() {
       this.res.writeHead(200);
       postMessage(eightball());
       this.res.end();
-    // } else if (/tryna start/.test(request_text)) {
-    //   this.res.writeHead(200);
-    //   postMessage(tryna_start());
-    //   this.res.end();
+    } else if (/tryna start/.test(request_text)) {
+      this.res.writeHead(200);
+      postMessage(tryna_start());
+      this.res.end();
     } else if (/robert wang/.test(request_text)) {
       this.res.writeHead(200);
       postMessage("you talkin to me?");
@@ -74,10 +74,13 @@ function help() {
 }
 
 function tryna_start() {
-  if (Math.random() < 0.75) {
+  var rand = Math.random();
+  if (rand < .2) {
     return "is that kwang tryna start again?";
-  } else {
-    return "who tryna start rn";
+  } else if (rand < .4){
+    return "is that cory tryna start again?";
+  } else if (random < .6) {
+    return "is that " + choosePerson() + " tryna start again";
   }
 }
 
