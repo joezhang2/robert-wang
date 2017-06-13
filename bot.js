@@ -42,9 +42,12 @@ function respond() {
       postMessage(eightball());
       this.res.end();
     } else if (/tryna start/.test(request_text)) {
-      this.res.writeHead(200);
-      postMessage(tryna_start());
-      this.res.end();
+      var response = tryna_start();
+      if (response != null) {
+        this.res.writeHead(200);
+        postMessage(response);
+        this.res.end();
+      }
     } else if (/robert wang/.test(request_text)) {
       this.res.writeHead(200);
       postMessage("you talkin to me?");
@@ -75,14 +78,12 @@ function help() {
 
 function tryna_start() {
   var rand = Math.random();
-  if (rand < .2) {
+  if (rand < .25) {
     return "is that kwang tryna start again?";
-  } else if (rand < .4){
+  } else if (rand < .5){
     return "is that cory tryna start again?";
-  } else if (rand < .6) {
+  } else if (rand < .7) {
     return "is that " + choosePerson() + " tryna start again";
-  } else {
-    console.log("no one tryna start");
   }
 }
 
