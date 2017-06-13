@@ -79,8 +79,10 @@ function tryna_start() {
     return "is that kwang tryna start again?";
   } else if (rand < .4){
     return "is that cory tryna start again?";
-  } else if (random < .6) {
+  } else if (rand < .6) {
     return "is that " + choosePerson() + " tryna start again";
+  } else {
+    console.log("no one tryna start");
   }
 }
 
